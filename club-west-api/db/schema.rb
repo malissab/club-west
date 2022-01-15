@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 2022_01_13_172450) do
   create_table "reviews", force: :cascade do |t|
     t.string "comment"
     t.integer "user_id", null: false
-    t.integer "product_id", null: false
+    t.integer "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_reviews_on_product_id"
+    t.index ["item_id"], name: "index_reviews_on_item_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -60,6 +60,6 @@ ActiveRecord::Schema.define(version: 2022_01_13_172450) do
   add_foreign_key "carts", "items"
   add_foreign_key "carts", "users"
   add_foreign_key "items", "categories"
-  add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "items"
   add_foreign_key "reviews", "users"
 end
