@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  resources :carts
+  resources :carts, only: [:index, :create, :destroy]
   resources :reviews
-  resources :items
-  resources :categories
-  resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :items, only: [:index, :show]
+  resources :categories, only: [:index, :show]
+  resources :users, only: [:index, :show, :create, :destroy]
+  
+  resources :sessions, only: [:create, :destroy]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get "/me", to: "users#show"
+  get "/signup", to: "users#show"
+
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+  
+ 
 end
