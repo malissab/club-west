@@ -16,10 +16,9 @@ export default function ItemCard({ id, name, description, image_url, price }) {
     <div>
         <Card
           raised
-          sx={{ maxWidth: 385 }}
-          onClick={() => navigate(`/items/${id}`)}
+          sx={{ maxWidth: 385}}
         >
-          <CardContent>
+          <CardContent onClick={() => navigate(`/items/${id}`)}>
             <img src={image_url} alt={name} width="100%" />
             <Typography
               variant="headline"
@@ -34,12 +33,10 @@ export default function ItemCard({ id, name, description, image_url, price }) {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button variant="outlined" size="small" onClick={() => navigate("/CartPage")}>
+            <Button variant="outlined" size="small" onClick={() => navigate("/cart")}>
               Add To Cart
             </Button>
-            <Button variant="outlined" size="small">
-              Post Review
-            </Button>
+          
           </CardActions>
         </Card>
      

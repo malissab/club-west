@@ -9,6 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 
 const darkTheme = createTheme({
@@ -46,8 +47,16 @@ export default function NavBar() {
           <Button color="inherit" onClick={() => navigate("/about")}>About</Button>
           <Button color="inherit" onClick={() => navigate("/items")}>Shop</Button>
           <Button color="inherit" onClick={() => navigate("/connect")}>Connect</Button>
-          <Button sx={{ marginLeft: 2 }} variant="contained" size="small" color="primary" onClick={() => navigate("/login")}>Login</Button>
-          <Button sx={{ marginLeft: 2 }} variant="contained" size="small" color="primary" onClick={() => navigate("/signup")}>Sign Up</Button>
+          <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={() => navigate("/login" && "/signup")}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
           <IconButton
             size="medium"
             color="inherit"
