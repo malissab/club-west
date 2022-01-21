@@ -33,7 +33,7 @@ export default function ItemCard({ id, name, description, image_url, price }) {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button variant="outlined" size="small" onClick={() => navigate("/cart")}>
+            <Button variant="contained" size="small" fullWidth onClick={() => navigate("/cart")}>
               Add To Cart
             </Button>
           

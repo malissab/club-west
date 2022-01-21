@@ -48,21 +48,21 @@ export default function NavBar() {
           <Button color="inherit" onClick={() => navigate("/items")}>Shop</Button>
           <Button color="inherit" onClick={() => navigate("/connect")}>Connect</Button>
           <IconButton
-                size="large"
+                
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={() => navigate("/login" && "/signup")}
                 color="inherit"
               >
-                <AccountCircle />
+                <AccountCircle sx= {{ width: 35, height: 35 }} />
               </IconButton>
           <IconButton
-            size="medium"
+            
             color="inherit"
             onClick={() => navigate("/cart")} 
           >
-            <ShoppingCartTwoToneIcon sx= {{ marginLeft: 4, width: 40, height: 40 }} />
+            <ShoppingCartTwoToneIcon sx= {{ width: 40, height: 40 }} />
           </IconButton>
         </Toolbar>
       </AppBar>

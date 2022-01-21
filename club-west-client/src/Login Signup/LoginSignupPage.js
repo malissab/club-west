@@ -58,10 +58,10 @@ export default function LoginSignupPage({ setIsUser, handleSignupClick, handleLo
           <Tab label="Sign Up" />
         </Tabs>
         <TabPanel value={value} index={0}>
-       <LoginForm setIsUser={setIsUser} loginAnchorEl={loginAnchorEl} handleLoginClose={handleLoginClose}/>
+       <LoginForm handleChange={handleChange} setIsUser={setIsUser} loginAnchorEl={loginAnchorEl} handleLoginClose={handleLoginClose}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-      <SignupForm setIsUser={setIsUser} signupAnchorEl={signupAnchorEl} handleSignUpClose={handleSignUpClose}/>
+      <SignupForm handleChange={handleChange} setIsUser={setIsUser} signupAnchorEl={signupAnchorEl} handleSignUpClose={handleSignUpClose}/>
       </TabPanel>
       </Paper>
 

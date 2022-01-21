@@ -50,7 +50,6 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-        "/billing"
         <Route path="/billing" element={<BillingPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/signup" element={<LoginSignupPage setIsUser={setIsUser} handleSignupClick={handleSignupClick} signupAnchorEl={signupAnchorEl} setSignupAnchorEl={setSignupAnchorEl}  />} />
