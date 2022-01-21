@@ -23,6 +23,7 @@ function App() {
   const [isUser, setIsUser] = useState(false);
   const [user, setUser] = useState(null);
   const [getItem, setGetItem] = useState({});
+  const [currentUser, setCurrentUser] = useState(null)
 
 
 
@@ -59,7 +60,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar />
+        <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
         <Routes>
         <Route path="/billing" element={<BillingPage />} />
         <Route path="/cart" element={<CartPage />} />

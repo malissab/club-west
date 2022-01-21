@@ -8,10 +8,12 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Typography } from "@mui/material";
 import Link from '@mui/material/Link';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function SignupForm({ setIsUser, handleChange }) {
-
+    const navigate = useNavigate();
+    
     const initialValues = {
         username: "",
         email: "",
@@ -48,6 +50,7 @@ export default function SignupForm({ setIsUser, handleChange }) {
           if (res.ok) {
             res.json().then((user) => {
               setIsUser(user);
+              navigate("/home");
             });
           } else {
             res.json().then((errors) => {

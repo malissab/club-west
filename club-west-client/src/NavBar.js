@@ -22,11 +22,20 @@ const darkTheme = createTheme({
     },
   });
 
-export default function NavBar() {
+export default function NavBar({ currentUser, setCurrentUser }) {
 
   const state = useSelector((state) => state.handleCart)
 
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    fetch('/logout', {method: "DELETE"})
+    .then(res => {
+          if (res.ok) {
+            setCurrentUser(null)
+          }
+        })
+  }
 
 
   return (
@@ -60,6 +69,7 @@ export default function NavBar() {
               >
                 <AccountCircle sx= {{ width: 35, height: 35 }} />
               </IconButton>
+              {currentUser ? <p>Welcome, {currentUser} <Button color="inherit" onClick={handleLogout}>Log out</Button></p>  : null} 
           <IconButton
             
             color="inherit"

@@ -1,4 +1,4 @@
-import handleCart from "./handleCart";
+import handleCart from "../reducer/handleCart.js";
 
 import { combineReducers } from "redux";
 
