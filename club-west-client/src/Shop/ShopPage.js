@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ItemContainer from './ItemContainer';
 
-export default function ShopPage() {
+export default function ShopPage({ renderDetails, onAdd }) {
 
     const [getItems, setGetItems] = useState([])
 
@@ -18,7 +18,7 @@ export default function ShopPage() {
 
     return (
         <div> 
-            <ItemContainer getItems={getItems} setGetItems={setGetItems}/>  
+            <ItemContainer getItems={getItems} setGetItems={setGetItems} renderDetails={renderDetails} onAdd={onAdd} />  
         </div>
     )
 }

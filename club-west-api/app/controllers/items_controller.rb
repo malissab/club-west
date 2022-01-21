@@ -2,11 +2,11 @@ class ItemsController < ApplicationController
 
     def index
         items = Item.all
-        render json: items, status: 200
+        render json: items
     end
 
     def show
         categoryItem = Item.find(params[:id])
-        render json: categoryItem 
+        render json: categoryItem, include: [:reviews]
     end
 end

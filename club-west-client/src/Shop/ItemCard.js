@@ -3,23 +3,31 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 
 
-export default function ItemCard({ id, name, description, image_url, price }) {
+export default function ItemCard({ id, name, description, image_url, price, renderDetails }) {
 
   const navigate = useNavigate();
     
+  function displayDetails(id){
+    
+    renderDetails(id)
+  }
+
+
   return (
     <div>
         <Card
           raised
           sx={{ maxWidth: 385}}
         >
-          <CardContent onClick={() => navigate(`/items/${id}`)}>
-            <img src={image_url} alt={name} width="100%" />
+          <CardContent>
+          <Link to={`/items/${id}`}>
+            <img onClick={() => displayDetails(id)} src={image_url} alt={name} width="100%" />
+            </Link>
             <Typography
               variant="headline"
               component="h2"
@@ -29,12 +37,12 @@ export default function ItemCard({ id, name, description, image_url, price }) {
               {name}
             </Typography>
             <Typography component="p" color="primary" sx={{ marginTop: 2 }}>
-              ${price}
+              ${price}.00
             </Typography>
           </CardContent>
           <CardActions>
             <Button variant="contained" size="small" fullWidth onClick={() => navigate("/cart")}>
-              Add To Cart
+              BUY NOW
             </Button>
           
           </CardActions>

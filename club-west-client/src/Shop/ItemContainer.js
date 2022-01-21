@@ -4,10 +4,10 @@ import Grid from '@mui/material/Grid';
 
 
 
-export default function ItemContainer({ getItems, setGetItems }) {
+export default function ItemContainer({ getItems, setGetItems, renderDetails }) {
 
   // const navigate = useNavigate()
-  const allItems = getItems.map((item) => <ItemCard key={item.id} getItems={getItems} setGetItems={setGetItems} 
+  const allItems = getItems.map((item) => <ItemCard key={item.id} renderDetails={renderDetails} getItems={getItems} setGetItems={setGetItems} 
   id={item.id} name={item.name} description={item.description} image_url={item.image_url} price={item.price}/>)
     console.log(allItems);
   return (

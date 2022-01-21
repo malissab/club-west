@@ -13,28 +13,28 @@ import Link from '@mui/material/Link';
 export default function SignupForm({ setIsUser, handleChange }) {
 
     const initialValues = {
-        username: '',
-        email: '',
-        password: '',
-        password_confirmation: '',
+        username: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
       };
 
 
-//       const validationSchema = Yup.object.shape({
-//           username: Yup.string()
-//             .required('Username is required')
-//             .min(5, 'Username must be at least 5 characters'),
-//           email: Yup.string()
-//             .required('Email is required')
-//             .email('Invalid email address'),
-//           password: Yup.string()
-//             .required('Password is required')
-//             .min(6, 'Password must be at least 6 characters'),
-//           password_confirmation: Yup.string()
-//             .required('Confirm Password is required')
-//             .oneOf([Yup.ref('password'), null], 'Confirm Password does not match'),
-//           acceptTerms: Yup.bool().oneOf([true], 'Accept Terms is required'),
-//         });
+      // const validationSchema = Yup.object.shape({
+      //     username: Yup.string()
+      //       .required('Username is required')
+      //       .min(5, 'Username must be at least 5 characters'),
+      //     email: Yup.string()
+      //       .required('Email is required')
+      //       .email('Invalid email address'),
+      //     password: Yup.string()
+      //       .required('Password is required')
+      //       .min(6, 'Password must be at least 6 characters'),
+      //     password_confirmation: Yup.string()
+      //       .required('Confirm Password is required')
+      //       .oneOf([Yup.ref('password'), null], 'Confirm Password does not match'),
+      //     acceptTerms: Yup.bool().oneOf([true], 'Accept Terms is required'),
+      //   });
 
       function handleSubmit(values) {
        
@@ -79,32 +79,35 @@ export default function SignupForm({ setIsUser, handleChange }) {
                     <Form>
           <Field as={TextField}
               label="Email"
+              name="email"
               placeholder="Enter email"
               style={textFields}
-              autoComplete="off"
               required
             />
             <Field as={TextField}
               label="Username"
+              name="username"
               placeholder="Enter username"
               style={textFields}
-              autoComplete="off"
+           
               required
             />
             <Field as={TextField}
               label="Password"
+              name="password"
               placeholder="Enter password"
               type="password"
               style={textFields}
-              autoComplete="off"
+        
               required
             />
             <Field as={TextField}
               label="Password Confirmation"
+              name="password_confirmation"
               placeholder="Enter password confirmation"
               type="password"
               style={textFields}
-              autoComplete="off"
+            
               required
             />
             <Button type="submit" style={buttonStyle} variant="contained">
