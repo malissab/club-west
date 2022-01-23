@@ -46,6 +46,7 @@ function App() {
         })
   }
 
+
   function handleLoginClick(event){
         setLoginAnchorEl(event.currentTarget)
         console.log(user)  
@@ -68,7 +69,7 @@ function App() {
         <Route path="/login" element={<LoginSignupPage setIsUser={setIsUser} handleLoginClick={handleLoginClick} loginAnchorEl={loginAnchorEl} setLoginAnchorEl={setLoginAnchorEl}/>} />
           <Route path="/connect" element={<ConnectPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/items/:id" element={<ItemDetails item={getItem} />} />
+          <Route path="/items/:id" element={<ItemDetails item={getItem} setGetItem={setGetItem} />} />
           <Route path="/items" element={<ShopPage renderDetails={renderItemDetails} />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/" element={ <HomePage />} />

@@ -13,15 +13,3 @@ export const delCart = (item) => {
     }
 }
 
-export const renderItem = (item) => {
-   return { 
-        type : "SHOWITEM",
-        payload : item
-   }
-}
-export const removeItem = (item) => {
-    return { 
-         type : "REMITEM",
-         payload : item
-    }
- }

@@ -5,28 +5,29 @@ import { useSelector, useDispatch } from 'react-redux';
 import { delCart } from '../redux/index';
 
 export default function CartPage() {
-    const state = useSelector((state) => state.addItem)
+    const state = useSelector((state) => state.handleCart)
     const dispatch = useDispatch()
-    // const handleDel = (item) => {
-    //     dispatch(delCart(item))
-    // }
+    const handleDel = (item) => {
+        dispatch(delCart(item))
+    }
+    console.log(state)
 
     const navigate = useNavigate();
+    const cartItems = state.map((cartItem) => {
+        return (
+            <div key={cartItem.id}>
+           <Button onClick={() => handleDel(cartItem)} variant="outlined" size="small">Delete</Button>
+            <img style={{ width: '40%', height: '40%'}} src={cartItem.image_url} alt={cartItem.name} />
+            <p>${cartItem.price}</p>
+            </div>
 
-    // const cartItems = (cartItem) => {
-    //     console.log(cartItem)
-    //     return (
-    //         <div key={cartItem.id}>
-    //        <Button onClick={() => handleDel(cartItem)} variant="outlined" size="small">Delete</Button>
-    //         <img src={cartItem.img} alt={cartItem.name} />
-    //         </div>
-
-    //     )
-    // }
+        )
+    }
+    )
     return (
         <div>
             <h1>Cart is Empty</h1>
-           {/* {state.length !== 0 && state.map(cartItems)} */}
+           {cartItems}
            
         <Button variant="outlined" size="small" onClick={() => navigate("/billing")}>
               Check Out

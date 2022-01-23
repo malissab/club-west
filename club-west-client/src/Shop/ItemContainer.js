@@ -14,9 +14,9 @@ export default function ItemContainer({ getItems, setGetItems, renderDetails }) 
     <div>
       <Grid sx={{ flexGrow: 4,
         marginTop: 5, 
-        padding: 10, 
-        columnGap: 10, 
-        rowGap: 8, 
+        padding: 8, 
+        columnGap: 3, 
+        rowGap: 3, 
         justifyContent: "center"}} container spacing={2}>
       {allItems}
       </Grid>

@@ -28,7 +28,7 @@ export default function ItemCard({ id, name, description, image_url, price, rend
           <Link to={`/items/${id}`}>
             <img onClick={() => displayDetails(id)} src={image_url} alt={name} width="100%" />
             </Link>
-            <Typography
+            {/* <Typography
               variant="headline"
               component="h2"
               color="#404040"
@@ -38,12 +38,9 @@ export default function ItemCard({ id, name, description, image_url, price, rend
             </Typography>
             <Typography component="p" color="primary" sx={{ marginTop: 2 }}>
               ${price}.00
-            </Typography>
+            </Typography> */}
           </CardContent>
           <CardActions>
-            <Button variant="contained" size="small" fullWidth onClick={() => navigate("/cart")}>
-              BUY NOW
-            </Button>
           
           </CardActions>
         </Card>

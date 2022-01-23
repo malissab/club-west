@@ -5,11 +5,12 @@ import * as Yup from 'yup';
 import TextField from '@mui/material/TextField';
 import { useDispatch } from 'react-redux';
 import { addCart, delCart } from '../redux/index';
+import ReviewPost from './ReviewPost';
+import { height } from '@mui/system';
 
 
 
-
-export default function ItemDetails({item}) {
+export default function ItemDetails({item, setGetItem}) {
    
     const initialValues={
         comment:''
@@ -22,7 +23,7 @@ export default function ItemDetails({item}) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(values),
+          body: JSON.stringify({...values, item_id: item.id}),
         }).then((res) => {
           if (res.ok) {
             res.json().then((r) => {
@@ -36,30 +37,6 @@ export default function ItemDetails({item}) {
           }
         });
       }
-
-//       function handleUpdate(values) {
-        
-//         fetch("/reviews", {
-//           method: "PATCH",
-//           headers: {
-//             "Content-Type": "application/json",
-//           },
-//           body: JSON.stringify({
-//             comment: comment
-//           }),
-//         })
-//           .then((r) => r.json())
-//           .then(() => ());
-//       }
-//     }
-
-//       function handleDelete(values) {
-//         fetch(`/reviews/${id}`, {
-//       method: "DELETE",
-//     })
-//       .then((r) => r.json())
-//       .then(() => ());
-//   }
 
       
 
@@ -75,13 +52,13 @@ export default function ItemDetails({item}) {
     }
 
     const reviews = item.reviews
-    const reviewList = reviews?.map((review) => <h3>{review.comment}</h3>)
+    const reviewList = reviews?.map((review) => <ReviewPost key={item.id} item={item} setGetItem={setGetItem} review={review} />) 
     return(
         <div style={{ paddingTop: 100}}>
             <h3>{item.name}</h3>
             <p>${item.price}</p>
             <p>{item.description}</p>
-            <img src={item.image_url} alt={item.name} />
+            <img style={{ width: '50%', height: '20%'}} src={item.image_url} alt={item.name} />
             <h1>Product Reviews</h1>
             Review: {reviews ? reviewList : <p>This product has no reviews, be the first!</p>}
             <Button variant="contained" size="small"  onClick={() => handleCart(item)}>
@@ -101,12 +78,6 @@ export default function ItemDetails({item}) {
             />
             <Button type="submit" variant="contained" onClick={handleSubmit} >
               Post
-            </Button> 
-            <Button type="submit" variant="contained" >
-              Edit
-            </Button> 
-            <Button type="submit" variant="contained" >
-              Delete
             </Button> 
 
                     </Form>

@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
         
 
     def create
-        itemReview = Review.create!(review_params)
+        itemReview = current_user.reviews.create!(review_params)
         render json: itemReview, status: :created
     end
 
