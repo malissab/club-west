@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import ItemContainer from './ItemContainer';
+import { useDispatch, useSelector } from 'react-redux';
+import { getItems } from '../features/itemsSlice.js'
 
-export default function ShopPage({ renderDetails, onAdd }) {
+export default function ShopPage({ onAdd }) {
 
-    const [getItems, setGetItems] = useState([])
+    const dispatch = useDispatch()
+
+
 
 
   // gets all items
@@ -11,14 +15,14 @@ export default function ShopPage({ renderDetails, onAdd }) {
     fetch('/items')
     .then(res => res.json())
     .then(data =>  {
-        setGetItems(data)
+        dispatch(getItems(data))
     })
   }, [])
 
 
     return (
         <div> 
-            <ItemContainer getItems={getItems} setGetItems={setGetItems} renderDetails={renderDetails} onAdd={onAdd} />  
+            <ItemContainer onAdd={onAdd} />  
         </div>
     )
 }

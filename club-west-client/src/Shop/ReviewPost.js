@@ -1,7 +1,7 @@
 
 import Button from '@mui/material/Button';
 
-export default function ReviewPost({ item, setGetItem, review }){
+export default function ReviewPost({ review }){
 
 
 
@@ -22,12 +22,12 @@ export default function ReviewPost({ item, setGetItem, review }){
     //   }
     
 
-      function handleDelete() {
-        fetch(`/reviews/${review.id}`, {
-      method: "DELETE",
-    })
-      .then(() => setGetItem({...item, reviews: item.reviews.filter((r) => r.id != review.id)}));
-  }
+//       function handleDelete() {
+//         fetch(`/reviews/${review.id}`, {
+//       method: "DELETE",
+//     })
+//       .then(() => setGetItem({...item, reviews: item.reviews.filter((r) => r.id !== review.id)}));
+//   }
 
 
 
@@ -37,9 +37,9 @@ export default function ReviewPost({ item, setGetItem, review }){
         <Button  type="submit" variant="contained" >
               Edit
             </Button> 
-            <Button onClick={handleDelete} type="submit" variant="contained" >
+            {/* <Button onClick={handleDelete} type="submit" variant="contained" >
               Delete
-            </Button> 
+            </Button>  */}
         </>
     )
 }

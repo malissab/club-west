@@ -8,14 +8,9 @@ import { useNavigate, Link } from 'react-router-dom';
 
 
 
-export default function ItemCard({ id, name, description, image_url, price, renderDetails }) {
+export default function ItemCard({ id, name, description, image_url, price}) {
 
   const navigate = useNavigate();
-    
-  function displayDetails(id){
-    
-    renderDetails(id)
-  }
 
 
   return (
@@ -26,7 +21,7 @@ export default function ItemCard({ id, name, description, image_url, price, rend
         >
           <CardContent>
           <Link to={`/items/${id}`}>
-            <img onClick={() => displayDetails(id)} src={image_url} alt={name} width="100%" />
+            <img src={image_url} alt={name} width="100%" />
             </Link>
             {/* <Typography
               variant="headline"

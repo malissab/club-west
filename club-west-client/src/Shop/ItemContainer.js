@@ -1,15 +1,18 @@
 import React from 'react';
 import ItemCard from './ItemCard';
 import Grid from '@mui/material/Grid';
+import { useSelector } from 'react-redux';
 
 
+export default function ItemContainer() {
 
-export default function ItemContainer({ getItems, setGetItems, renderDetails }) {
+  const items = useSelector(state => state.items.itemsArr);
 
   // const navigate = useNavigate()
-  const allItems = getItems.map((item) => <ItemCard key={item.id} renderDetails={renderDetails} getItems={getItems} setGetItems={setGetItems} 
-  id={item.id} name={item.name} description={item.description} image_url={item.image_url} price={item.price}/>)
-    console.log(allItems);
+  const allItems = items.map((item) => <ItemCard key={item.id} id={item.id} name={item.name} 
+  description={item.description} image_url={item.image_url} price={item.price}/>)
+  
+    
   return (
     <div>
       <Grid sx={{ flexGrow: 4,

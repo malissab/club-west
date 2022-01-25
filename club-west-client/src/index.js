@@ -2,8 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from "react-redux";
-import store from "./reducer/store.js";
+
+import itemsReducer from './features/itemsSlice';
+import reviewsReducer from './features/reviewsSlice';
+import cartsReducer from './features/cartsSlice';
+
+
+const store = configureStore({
+  reducer: {
+    items: itemsReducer,
+    reviews: reviewsReducer,
+    cart: cartsReducer
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>

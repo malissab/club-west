@@ -22,7 +22,6 @@ function App() {
   const [signupAnchorEl, setSignupAnchorEl] = useState(false);
   const [isUser, setIsUser] = useState(false);
   const [user, setUser] = useState(null);
-  const [getItem, setGetItem] = useState({});
   const [currentUser, setCurrentUser] = useState(null)
 
 
@@ -37,14 +36,6 @@ function App() {
       }
     });
   }, []);
-
-  function renderItemDetails(id){
-    fetch(`items/${id}`)
-        .then(res => res.json())
-        .then(itemData => {
-            setGetItem(itemData)
-        })
-  }
 
 
   function handleLoginClick(event){
@@ -69,8 +60,8 @@ function App() {
         <Route path="/login" element={<LoginSignupPage setIsUser={setIsUser} handleLoginClick={handleLoginClick} loginAnchorEl={loginAnchorEl} setLoginAnchorEl={setLoginAnchorEl}/>} />
           <Route path="/connect" element={<ConnectPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/items/:id" element={<ItemDetails item={getItem} setGetItem={setGetItem} />} />
-          <Route path="/items" element={<ShopPage renderDetails={renderItemDetails} />} />
+          <Route path="/items/:id" element={<ItemDetails />} />
+          <Route path="/items" element={<ShopPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/" element={ <HomePage />} />
           <Route path="*" element={<ErrorPage />} />

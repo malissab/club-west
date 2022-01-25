@@ -10,7 +10,7 @@ import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import { useSelector } from 'react-redux';
+
 
 
 const darkTheme = createTheme({
@@ -24,7 +24,7 @@ const darkTheme = createTheme({
 
 export default function NavBar({ currentUser, setCurrentUser }) {
 
-  const state = useSelector((state) => state.handleCart)
+  
 
   const navigate = useNavigate();
 
@@ -76,7 +76,6 @@ export default function NavBar({ currentUser, setCurrentUser }) {
             onClick={() => navigate("/cart")} 
           >
             <ShoppingCartTwoToneIcon sx= {{ width: 30, height: 30 }} />
-            {state.length}
           </IconButton>
         </Toolbar>
       </AppBar>
