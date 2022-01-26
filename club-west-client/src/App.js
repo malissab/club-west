@@ -22,7 +22,7 @@ function App() {
   const [signupAnchorEl, setSignupAnchorEl] = useState(false);
   const [isUser, setIsUser] = useState(false);
   const [user, setUser] = useState(null);
-  const [currentUser, setCurrentUser] = useState(null)
+
 
 
 
@@ -52,7 +52,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
+        <NavBar user={user} setUser={setUser} />
         <Routes>
         <Route path="/billing" element={<BillingPage />} />
         <Route path="/cart" element={<CartPage />} />

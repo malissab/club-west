@@ -1,37 +1,78 @@
-import React from 'react';
-import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-// import { delCart } from '../redux/index';
+import React, { useEffect } from "react";
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteFromCart, grandTotal } from "../features/cartsSlice";
+
 
 export default function CartPage() {
-    // const state = useSelector((state) => state.handleCart)
-    // const dispatch = useDispatch()
-    // const handleDel = (item) => {
-    //     dispatch(delCart(item))
-    // }
-    
 
-    const navigate = useNavigate();
-    // const cartItems = state.map((cartItem) => {
-    //     return (
-    //         <div key={cartItem.id}>
-    //        <Button onClick={() => handleDel(cartItem)} variant="outlined" size="small">Delete</Button>
-    //         <img style={{ width: '40%', height: '40%'}} src={cartItem.image_url} alt={cartItem.name} />
-    //         <p>${cartItem.price}</p>
-    //         </div>
 
-    //     )
-    // }
-    // )
-    return (
+  const cart = useSelector((state) => state.cart);
+  const handleRemove = (cartItem) => {
+    dispatch(deleteFromCart(cartItem))
+  }
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(grandTotal())
+  }, [cart, dispatch]);
+
+  return (
+    <div>
+      <h1>Shopping Cart</h1>
+      {cart.cartItems.length === 0 ? (
         <div>
-            <h1>Cart is Empty</h1>
-           {/* {cartItems} */}
-           
-        <Button variant="outlined" size="small" onClick={() => navigate("/billing")}>
-              Check Out
-            </Button>
+          <p>Your Cart is Empty.</p>
+          <Button
+            variant="outlined"
+            size="small"
+            onClick={() => navigate("/items")}
+          >
+            Start Shopping
+          </Button>
         </div>
-    )
+      ) : (
+        <div>
+          {cart.cartItems?.map((cartItem) => (
+            <div key={cartItem.id}>
+              <div>
+                <img style={{ width: '40%', height: '40%'}} src={cartItem.image_url} alt={cartItem.name} />
+                <div>
+                  {cartItem.name}${cartItem.price}
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    onClick={() => handleRemove(cartItem)}
+                  >
+                    Remove
+                  </Button>
+                </div>
+                <div>${cartItem.price * cartItem.cartQuantity}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      <div>
+      <Button
+        variant="outlined"
+        size="small"
+        onClick={() => navigate("/items")}
+      >
+        Return To Shop
+      </Button>
+          <span>Subtotal</span>
+          <span>${cart.cartTotalAmount}</span>
+      </div>
+      <Button
+        variant="outlined"
+        size="small"
+        onClick={() => navigate("/billing")}
+      >
+        Check Out
+      </Button>
+    </div>
+  );
 }

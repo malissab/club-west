@@ -9,6 +9,7 @@ import Link from '@mui/material/Link';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
 
 
 
@@ -21,6 +22,7 @@ export default function LoginForm({ setIsUser, handleChange }) {
     }
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
       function handleSubmit(values) {
        
@@ -74,7 +76,7 @@ export default function LoginForm({ setIsUser, handleChange }) {
             <Avatar style={avatarStyle}>
               <AccountCircleOutlinedIcon style={iconStyle} />
             </Avatar>
-            <h2>Login</h2>
+            <Typography>Login</Typography>
           </Grid>
           <Grid align="center">
 

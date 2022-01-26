@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ItemContainer from './ItemContainer';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getItems } from '../features/itemsSlice.js'
 
-export default function ShopPage({ onAdd }) {
+export default function ShopPage() {
 
     const dispatch = useDispatch()
 
@@ -17,12 +17,12 @@ export default function ShopPage({ onAdd }) {
     .then(data =>  {
         dispatch(getItems(data))
     })
-  }, [])
+  }, [dispatch])
 
 
     return (
         <div> 
-            <ItemContainer onAdd={onAdd} />  
+            <ItemContainer />  
         </div>
     )
 }

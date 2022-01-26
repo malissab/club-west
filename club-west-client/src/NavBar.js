@@ -10,6 +10,8 @@ import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import { useSelector } from 'react-redux';
+
 
 
 
@@ -22,9 +24,11 @@ const darkTheme = createTheme({
     },
   });
 
-export default function NavBar({ currentUser, setCurrentUser }) {
-
+export default function NavBar({user, setUser}) {
+  console.log(user)
   
+  const { cartTotalQuantity } = useSelector(state => state.cart)
+
 
   const navigate = useNavigate();
 
@@ -32,7 +36,7 @@ export default function NavBar({ currentUser, setCurrentUser }) {
     fetch('/logout', {method: "DELETE"})
     .then(res => {
           if (res.ok) {
-            setCurrentUser(null)
+            setUser(null)
           }
         })
   }
@@ -64,18 +68,19 @@ export default function NavBar({ currentUser, setCurrentUser }) {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={() => navigate("/login" && "/signup")}
+                onClick={() => navigate("/login")}
                 color="inherit"
               >
                 <AccountCircle sx= {{ width: 35, height: 35 }} />
               </IconButton>
-              {currentUser ? <p>Welcome, {currentUser} <Button color="inherit" onClick={handleLogout}>Log out</Button></p>  : null} 
+              {user ? <><Typography>Welcome, {user.username}</Typography> <Button color="inherit" onClick={handleLogout}>Log out</Button></> : null} 
           <IconButton
             
             color="inherit"
             onClick={() => navigate("/cart")} 
           >
             <ShoppingCartTwoToneIcon sx= {{ width: 30, height: 30 }} />
+            {cartTotalQuantity}
           </IconButton>
         </Toolbar>
       </AppBar>
