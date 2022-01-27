@@ -48,10 +48,11 @@ export default function ReviewPost({ review }) {
 
   return (
     <>
-      <h3>{review.comment}</h3>
+      <h3 style={{ alignItems: 'right'}}>{review.comment}</h3>
       <Button
         variant="outlined"
         onClick={handleClickOpen}
+        color='success'
       >
         Edit
       </Button>
@@ -80,6 +81,8 @@ export default function ReviewPost({ review }) {
         onClick={() => handleDelete(review)}
         type="submit"
         variant="contained"
+        color='success'
+        style={{ margin: 10}}
       >
         Delete
       </Button>

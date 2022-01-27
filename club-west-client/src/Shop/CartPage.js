@@ -4,31 +4,39 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteFromCart, grandTotal } from "../features/cartsSlice";
 
-
 export default function CartPage() {
-
-
   const cart = useSelector((state) => state.cart);
   const handleRemove = (cartItem) => {
-    dispatch(deleteFromCart(cartItem))
-  }
+    dispatch(deleteFromCart(cartItem));
+  };
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(grandTotal())
+    dispatch(grandTotal());
   }, [cart, dispatch]);
 
   return (
-    <div style={{ paddingTop: 100, fontFamily: 'courierPrime' }}>
+    <div style={{ paddingTop: 100, fontFamily: "courierPrime" }}>
       <h2>[ cart ]</h2>
+      <Button
+          variant="outlined"
+          size="small"
+          color='success'
+          onClick={() => navigate("/items")}
+          style={{ float: "left", margin: 10}}
+        >
+          Return To Shop
+        </Button>
       {cart.cartItems.length === 0 ? (
-        <div>
+        <div style={{ margin: 200, paddingLeft: 400}}>
           <p>Your Cart is Empty.</p>
           <Button
             variant="outlined"
             size="small"
             onClick={() => navigate("/items")}
+            color='success'
+            style={{ marginLeft: 15}}
           >
             Start Shopping
           </Button>
@@ -37,42 +45,44 @@ export default function CartPage() {
         <div>
           {cart.cartItems?.map((cartItem) => (
             <div key={cartItem.id}>
-              <div>
-                <img style={{ width: '40%', height: '40%'}} src={cartItem.image_url} alt={cartItem.name} />
-                <div>
-                  {cartItem.name}${cartItem.price}
+              <div style= {{ float: "left"}}>
+                <img
+                  style={{ width: "20%", height: "20%", margin: 30 }}
+                  src={cartItem.image_url}
+                  alt={cartItem.name}
+                />
+                <div style={{ float: "right"}}>
+                  {cartItem.name}
                   <Button
                     variant="outlined"
                     size="small"
                     onClick={() => handleRemove(cartItem)}
+                    style={{ margin: 10 }}
+                    color='success'
                   >
                     Remove
                   </Button>
                 </div>
-                <div>${cartItem.price * cartItem.cartQuantity}</div>
+                <div style={{ float: "right", margin: 15}}> Price: ${cartItem.price * cartItem.cartQuantity}</div>
               </div>
             </div>
           ))}
         </div>
       )}
-      <div>
+     
       <Button
-        variant="outlined"
+        variant="contained"
         size="small"
-        onClick={() => navigate("/items")}
-      >
-        Return To Shop
-      </Button>
-          <span>Total</span>
-          <span>${cart.cartTotalAmount}</span>
-      </div>
-      <Button
-        variant="outlined"
-        size="small"
+        color='success'
         onClick={() => navigate("/billing")}
+        style={{ margin: 10, float: "right"}}
       >
         Check Out
       </Button>
+      <div style={{ float: "right", margin: 20}}>
+        <span>Total: </span>
+        <span>${cart.cartTotalAmount}</span>
+      </div>
     </div>
   );
 }

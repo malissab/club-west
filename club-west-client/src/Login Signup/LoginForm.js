@@ -7,14 +7,13 @@ import Button from '@mui/material/Button';
 import { Typography } from "@mui/material";
 import Link from '@mui/material/Link';
 import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from "react-redux";
+
 
 
 
 export default function LoginForm({ setIsUser, handleChange }) {
- 
+  
 
     const initialValues={
         username:'',
@@ -22,7 +21,7 @@ export default function LoginForm({ setIsUser, handleChange }) {
     }
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+  
 
       function handleSubmit(values) {
        
@@ -47,22 +46,6 @@ export default function LoginForm({ setIsUser, handleChange }) {
         });
       }
 
-    //   const validationSchema = Yup.object.shape({
-    //               username: Yup.string()
-    //                 .required('Username is required')
-    //                 .min(5, 'Username must be at least 5 characters'),
-    //               email: Yup.string()
-    //                 .required('Email is required')
-    //                 .email('Invalid email address'),
-    //               password: Yup.string()
-    //                 .required('Password is required')
-    //                 .min(6, 'Password must be at least 6 characters'),
-    //               password_confirmation: Yup.string()
-    //                 .required('Confirm Password is required')
-    //                 .oneOf([Yup.ref('password'), null], 'Confirm Password does not match'),
-    //               acceptTerms: Yup.bool().oneOf([true], 'Accept Terms is required'),
-    //             });
-    
       
       const avatarStyle={ backgroundColor: '#855723', width: 60, height: 60 }
       const iconStyle={ color:'white', width: 45, height: 45 }

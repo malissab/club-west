@@ -1,6 +1,5 @@
 import React from "react";
 import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
 import Grid from '@mui/material/Grid';
 import Avatar from '@mui/material/Avatar';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
@@ -20,24 +19,6 @@ export default function SignupForm({ setIsUser, handleChange }) {
         password: "",
         password_confirmation: "",
       };
-
-
-      // const validationSchema = Yup.object.shape({
-      //     username: Yup.string()
-      //       .required('Username is required')
-      //       .min(5, 'Username must be at least 5 characters'),
-      //     email: Yup.string()
-      //       .required('Email is required')
-      //       .email('Invalid email address'),
-      //     password: Yup.string()
-      //       .required('Password is required')
-      //       .min(6, 'Password must be at least 6 characters'),
-      //     password_confirmation: Yup.string()
-      //       .required('Confirm Password is required')
-      //       .oneOf([Yup.ref('password'), null], 'Confirm Password does not match'),
-      //     acceptTerms: Yup.bool().oneOf([true], 'Accept Terms is required'),
-      //   });
-
       function handleSubmit(values) {
        
         fetch("/signup", {

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Button from "@mui/material/Button";
 import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
 import TextField from "@mui/material/TextField";
 import { useDispatch } from "react-redux";
 import ReviewPost from "./ReviewPost";
@@ -10,26 +9,13 @@ import { postReview, selectedItem } from "../features/itemsSlice.js";
 import { addToCart } from "../features/cartsSlice.js";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import Paper from '@mui/material/Paper';
+
 
 
 export default function ItemDetails() {
   const initialValues = {
     comment: "",
-  };
-
-  const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
   };
 
 
@@ -76,72 +62,58 @@ export default function ItemDetails() {
     });
   }
 
+
+  const paperStyle={ height: '50vh', width: 450, margin: '50px', float: 'left'}
+
+
   return (
     <div style={{ paddingTop: 100, fontFamily: 'courierPrime' }}>
-      <h1>{item.name}</h1>
-      <h4>Price:</h4>
-      <p>${item.price}</p>
-      <h4>Description:</h4>
-      <p>{item.description}</p>
+      
+      <h1 style= {{ paddingLeft: 15}}>{item.name}</h1>
+      <Paper elevation={20} style={paperStyle}>
       <img
-        style={{ width: "50%", height: "20%" }}
+        style={{ width: "100%", height: "100%" }}
         src={item.image_url}
         alt={item.name}
       />
-      <h2>Product Reviews</h2>
-      {reviews?.length === 0 ? <p>This product has no reviews, log in to leave the first!</p> : reviewList}
-      
-      <Button
+      <div style={{ padding: 15}}>
+       <Button
         variant="contained"
         size="small"
         onClick={() => handleAddToCart(item)}
+        color='success'
       >
         Add To Cart
       </Button>
-      <Button
-        variant="contained"
-        size="small"
-      >
-        Remove
-      </Button>
+      </div>
+      </Paper>
+      <div style={{ paddingTop: 100}}>
+      <h4>Description:</h4>
+      <p>{item.description}</p>
+      <h4>Price:</h4>
+      <p>${item.price}</p>
+      </div>
+      <h4 style={{ paddingTop: 150, textDecoration: 'underline', textDecorationThickness: '2px'}}>Product Reviews</h4>
+      {reviews?.length === 0 ? <p>This product has no reviews, log in to leave the first!</p> : <p>{reviewList}</p>}
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         {() => (
           <Form>
             <Field
               as={TextField}
-              label="Review"
+              label="Comment on this item..."
               name="comment"
-              placeholder="Write a review..."
-             
+              placeholder="Comment on this item..."
+
             />
             <Button
               onClick={handleSubmit}
               type="submit"
               variant="contained"
+              color='success'
+              style= {{ marginLeft: 10}}
             >
               Post
             </Button>
-            {/* <Dialog
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="alert-dialog-title"
-              aria-describedby="alert-dialog-description"
-            >
-              <DialogTitle id="alert-dialog-title">
-                Become a member of club west!
-              </DialogTitle>
-              <DialogContent>
-                <DialogContentText id="alert-dialog-description"> 
-                  Sign up today!
-                </DialogContentText>
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={() => navigate("/login")} autoFocus>
-                  Log in/Sign up
-                  </Button>
-                  <Button onClick={handleClose}>Close</Button>
-              </DialogActions>
-            </Dialog> */}
           </Form>
         )}
       </Formik>
