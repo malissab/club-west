@@ -77,7 +77,7 @@ export default function ItemDetails() {
   }
 
   return (
-    <div style={{ paddingTop: 100 }}>
+    <div style={{ paddingTop: 100, fontFamily: 'courierPrime' }}>
       <h1>{item.name}</h1>
       <h4>Price:</h4>
       <p>${item.price}</p>
@@ -89,8 +89,7 @@ export default function ItemDetails() {
         alt={item.name}
       />
       <h2>Product Reviews</h2>
-      Review:
-      {reviews?.length == 0 ? <p>This product has no reviews, log in to leave the first!</p> : reviewList}
+      {reviews?.length === 0 ? <p>This product has no reviews, log in to leave the first!</p> : reviewList}
       
       <Button
         variant="contained"
@@ -102,7 +101,6 @@ export default function ItemDetails() {
       <Button
         variant="contained"
         size="small"
-        // nClick={() => handleDelCart(item)}>
       >
         Remove
       </Button>
@@ -114,16 +112,16 @@ export default function ItemDetails() {
               label="Review"
               name="comment"
               placeholder="Write a review..."
-              // onClick={() => navigate("/login")}
+             
             />
             <Button
-              // onClick={handleClickOpen}
+              onClick={handleSubmit}
               type="submit"
               variant="contained"
             >
               Post
             </Button>
-            <Dialog
+            {/* <Dialog
               open={open}
               onClose={handleClose}
               aria-labelledby="alert-dialog-title"
@@ -134,7 +132,7 @@ export default function ItemDetails() {
               </DialogTitle>
               <DialogContent>
                 <DialogContentText id="alert-dialog-description"> 
-                  Please log in or sign up to leave a review.
+                  Sign up today!
                 </DialogContentText>
               </DialogContent>
               <DialogActions>
@@ -143,7 +141,7 @@ export default function ItemDetails() {
                   </Button>
                   <Button onClick={handleClose}>Close</Button>
               </DialogActions>
-            </Dialog>
+            </Dialog> */}
           </Form>
         )}
       </Formik>

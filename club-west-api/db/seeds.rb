@@ -38,7 +38,6 @@ puts 'Seeding Categories'
   shirtgeneral = Item.create(name: "80's Surgeon General Humor T-Shirt", description: "Vintage 80's Humor Surgeon General Tee, Single stitch. No tears", image_url: "/images/IMG_8500.jpg", size: "XL", price: 20, category: shirts)
   hatno = Item.create(name: "1997 New Orleans Superbowl Hat", description: "Vintage 97' New Orleans, Louisiana Superbowl Snapback, No flaws", image_url: "/images/IMG_0700.CR2.jpg" , size: "OS", price: 30, category: hats)
   pants550 = Item.create(name: "VTG 550 Levi Jeans", description: "Vintage Levi 550 Jeans , Fair condition, Nice vintage wear, Tag says 36in length but is 32in", image_url: "/images/IMG_8481.jpeg", size: "32x32", price: 30, category: pants)
-  jacketpeter = Item.create(name: "Peterbilt Jacket", description: "Peterbilt Jacket. Good condition", image_url: "/images/IMG_8390.jpeg", size: "XL", price: 50, category: jackets)
   hat49 = Item.create(name: "90's 49ERS Corduroy Hat", description: "Vintage 90's San Francisco 49ers Corduroy Snapback Amapro, No flaws", image_url: "/images/IMG_8496.jpg", size: "OS", price: 110, category: hats)
   jacketballoon = Item.create(name: "VTG Balloon Platoon Bomber", description: "Vintage Hot Air Balloon Platoon Bomber Jacet. Great condition", image_url: "/images/IMG_1181.CR2.jpg", size: "XXL", price: 55, category: jackets)
   ssten = Item.create(name: "1995 Big Ten Champions Sweatshirt", description: "Vintage 95' Northwestern Big Ten Sweatshirt. No tears", image_url: "/images/IMG_0034.CR2.jpg", size: "XL", price: 30, category: sweatshirts)

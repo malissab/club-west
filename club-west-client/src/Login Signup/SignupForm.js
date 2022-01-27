@@ -59,11 +59,11 @@ export default function SignupForm({ setIsUser, handleChange }) {
           }
         });
       }
-      const avatarStyle={ backgroundColor: 'pink', width: 60, height: 60 }
+      const avatarStyle={ backgroundColor: '#855723', width: 60, height: 60 }
       const iconStyle={ color:'white', width: 45, height: 45 }
       const textFields={ width: '80%', margin: 10}
-      const buttonStyle={color: 'pink', width: '80%', height: '5vh'}
-      const signUpStyle={paddingLeft: 6, fontSize: 15}
+      const buttonStyle={color: 'white', width: '80%', height: '5vh', fontFamily: 'courierPrime'}
+      const signUpStyle={paddingLeft: 6, fontSize: 15, fontFamily: 'courierPrime'}
     
 
     return (
@@ -73,8 +73,10 @@ export default function SignupForm({ setIsUser, handleChange }) {
             <Avatar style={avatarStyle}>
               <AccountCircleOutlinedIcon style={iconStyle} />
             </Avatar>
-            <h2>Sign Up</h2>
-            <h4>Create an account.</h4>
+            <div style={{fontFamily: 'courierPrime', paddingTop: 5}}>
+            <h3>Sign Up</h3>
+            <h5>Create an account.</h5>
+            </div>
           </Grid>
           <Grid align="center">
           <Formik initialValues={initialValues} onSubmit={handleSubmit}>
@@ -113,13 +115,13 @@ export default function SignupForm({ setIsUser, handleChange }) {
             
               required
             />
-            <Button type="submit" style={buttonStyle} variant="contained">
+            <Button type="submit" style={buttonStyle} variant="contained" color="success">
               Sign Up
             </Button>
             </Form>
                 )}
             </Formik>
-            <Typography sx={{ paddingTop: 2}}>
+            <Typography sx={{ paddingTop: 2, fontFamily: 'courierPrime'}}>
               Already have an account?
             <Link
                 style={signUpStyle}

@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
             review = Review.find_by(id: params[:id])
             if review
               review.update(review_params)
-              render json: reviews
+              render json: review
             else
               render json: { error: "Review not found" }, status: :not_found
             end
@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.permit(:comment, :user_id, :item_id)
+        params.permit(:comment, :user_id, :item_id, :id)
     end
 
   

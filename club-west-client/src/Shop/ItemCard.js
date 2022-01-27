@@ -1,44 +1,26 @@
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { useNavigate, Link } from 'react-router-dom';
+
+import {  Link } from 'react-router-dom';
+import Paper from '@mui/material/Paper';
+
+
+
+export default function ItemCard({ id, name, image_url}) {
 
 
 
 
-export default function ItemCard({ id, name, description, image_url, price}) {
-
-  const navigate = useNavigate();
-
+  const paperStyle={ height: '50vh', width: 450, margin: '20px auto'}
 
   return (
     <div>
-        <Card
-          raised
-          sx={{ maxWidth: 385}}
-        >
-          <CardContent>
-          <Link to={`/items/${id}`}>
-            <img src={image_url} alt={name} width="100%" />
+
+      <Paper elevation={20} style={paperStyle}>
+    
+           <Link to={`/items/${id}`}>
+            <img src={image_url} alt={name} width="100%" height="100%" />
             </Link>
-            {/* <Typography
-              variant="headline"
-              component="h2"
-              color="#404040"
-              sx={{ marginTop: 2 }}
-            >
-              {name}
-            </Typography>
-            <Typography component="p" color="primary" sx={{ marginTop: 2 }}>
-              ${price}.00
-            </Typography> */}
-          </CardContent>
-          <CardActions>
-          
-          </CardActions>
-        </Card>
+  
+      </Paper>
      
     </div>
   );

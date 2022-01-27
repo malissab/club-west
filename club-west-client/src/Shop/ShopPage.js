@@ -3,6 +3,7 @@ import ItemContainer from './ItemContainer';
 import { useDispatch } from 'react-redux';
 import { getItems } from '../features/itemsSlice.js'
 
+
 export default function ShopPage() {
 
     const dispatch = useDispatch()
@@ -22,6 +23,7 @@ export default function ShopPage() {
 
     return (
         <div> 
+          <h2 style={{ marginTop: 100, marginLeft: 30, fontFamily: 'courierPrime'}}>[ shop ]</h2>
             <ItemContainer />  
         </div>
     )

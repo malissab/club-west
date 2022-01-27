@@ -7,7 +7,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
-import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useSelector } from 'react-redux';
@@ -17,15 +16,14 @@ import { useSelector } from 'react-redux';
 
 const darkTheme = createTheme({
     palette: {
-      mode: 'dark',
       primary: {
-        main: '#1976d2',
+        main: '#fffee9',
       },
     },
   });
 
 export default function NavBar({user, setUser}) {
-  console.log(user)
+ 
   
   const { cartTotalQuantity } = useSelector(state => state.cart)
 
@@ -54,15 +52,15 @@ export default function NavBar({user, setUser}) {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+           
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Club West
+          <img src="/images/c-west.png" alt="club-west-logo" style={{ width: '250px'}} />
           </Typography>
-          <Button color="inherit" onClick={() => navigate("/home")}>Home</Button>
-          <Button color="inherit" onClick={() => navigate("/about")}>About</Button>
-          <Button color="inherit" onClick={() => navigate("/items")}>Shop</Button>
-          <Button color="inherit" onClick={() => navigate("/connect")}>Connect</Button>
+          <Button style={{ fontFamily: 'courierPrime' }} color="inherit" onClick={() => navigate("/home")}>Home</Button>
+          <Button style={{ fontFamily: 'courierPrime' }} color="inherit" onClick={() => navigate("/about")}>About</Button>
+          <Button style={{ fontFamily: 'courierPrime' }} color="inherit" onClick={() => navigate("/items")}>Shop</Button>
+          <Button style={{ fontFamily: 'courierPrime' }} color="inherit" onClick={() => navigate("/connect")}>Connect</Button>
           <IconButton
                 
                 aria-label="account of current user"
@@ -70,16 +68,17 @@ export default function NavBar({user, setUser}) {
                 aria-haspopup="true"
                 onClick={() => navigate("/login")}
                 color="inherit"
+                
               >
-                <AccountCircle sx= {{ width: 35, height: 35 }} />
+                <AccountCircle sx= {{ width: 30, height: 30 }} />
               </IconButton>
-              {user ? <><Typography>Welcome, {user.username}</Typography> <Button color="inherit" onClick={handleLogout}>Log out</Button></> : null} 
+              {user ? <><Typography style={{ fontFamily: 'courierPrime' }}>Welcome, {user.username}</Typography> <Button style={{ fontFamily: 'courierPrime' }} color="inherit" onClick={handleLogout}>Log out</Button></> : null} 
           <IconButton
             
             color="inherit"
             onClick={() => navigate("/cart")} 
           >
-            <ShoppingCartTwoToneIcon sx= {{ width: 30, height: 30 }} />
+            <ShoppingCartTwoToneIcon sx= {{ width: 25, height: 25 }} />
             {cartTotalQuantity}
           </IconButton>
         </Toolbar>
@@ -88,3 +87,58 @@ export default function NavBar({user, setUser}) {
     </Box>
   );
 }
+
+
+
+
+
+// {/* <Box sx={{ flexGrow: 1 }}>
+// <ThemeProvider theme={darkTheme}>
+//   <AppBar>
+//     <Toolbar position="fixed">
+//       <IconButton
+//         size="large"
+//         edge="start"
+//         color="inherit"
+//         aria-label="menu"
+//         sx={{ mr: 2 }}
+//       >
+        
+//       </IconButton>
+//       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+//         Club West
+//       </Typography>
+//       <Button color="inherit" onClick={() => navigate("/home")}>
+//         Home
+//       </Button>
+//       <Button color="inherit" onClick={() => navigate("/about")}>
+//         About
+//       </Button>
+//       <Button color="inherit" onClick={() => navigate("/items")}>
+//         Shop
+//       </Button>
+//       <IconButton
+//         aria-label="account of current user"
+//         aria-controls="menu-appbar"
+//         aria-haspopup="true"
+//         onClick={() => navigate("/login")}
+//         color="inherit"
+//       >
+//         <AccountCircle sx={{ width: 35, height: 35 }} />
+//       </IconButton>
+//       {user ? (
+//         <>
+//           <Typography>sup, {user.username}</Typography>{" "}
+//           <Button color="inherit" onClick={handleLogout}>
+//             Log out
+//           </Button>
+//         </>
+//       ) : null}
+//       <IconButton color="inherit" onClick={() => navigate("/cart")}>
+//         <ShoppingCartTwoToneIcon sx={{ width: 30, height: 30 }} />
+//         {cartTotalQuantity}
+//       </IconButton>
+//     </Toolbar>
+//   </AppBar>
+// </ThemeProvider>
+// </Box> */}

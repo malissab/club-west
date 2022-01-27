@@ -20,8 +20,8 @@ export default function CartPage() {
   }, [cart, dispatch]);
 
   return (
-    <div>
-      <h1>Shopping Cart</h1>
+    <div style={{ paddingTop: 100, fontFamily: 'courierPrime' }}>
+      <h2>[ cart ]</h2>
       {cart.cartItems.length === 0 ? (
         <div>
           <p>Your Cart is Empty.</p>
@@ -63,7 +63,7 @@ export default function CartPage() {
       >
         Return To Shop
       </Button>
-          <span>Subtotal</span>
+          <span>Total</span>
           <span>${cart.cartTotalAmount}</span>
       </div>
       <Button

@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from "react-redux";
-import usersReducer from './features/itemsSlice';
 import itemsReducer from './features/itemsSlice';
 import cartsReducer, { grandTotal } from './features/cartsSlice';
 
@@ -13,8 +12,7 @@ import cartsReducer, { grandTotal } from './features/cartsSlice';
 const store = configureStore({
   reducer: {
     items: itemsReducer,
-    cart: cartsReducer,
-    user: usersReducer
+    cart: cartsReducer
   },
 });
 
