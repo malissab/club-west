@@ -9,7 +9,7 @@ export default function ItemCard({ id, name, image_url}) {
 
 
 
-  const paperStyle={ height: '50vh', width: 450, margin: '20px auto'}
+  const paperStyle={ height: '30vh', width: 300, margin: '20px auto'}
 
   return (
     <div>

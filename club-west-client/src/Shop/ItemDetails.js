@@ -63,7 +63,7 @@ export default function ItemDetails() {
   }
 
 
-  const paperStyle={ height: '50vh', width: 450, margin: '50px', float: 'left'}
+  const paperStyle={ height: '45vh', width: 465, margin: '50px', float: 'left'}
 
 
   return (
