@@ -7,12 +7,12 @@ postgresql: &postgresql
 
 development:
   <<: *postgresql
-  database: club-west_development
+  database: club-west-api_development
 
 test:
   <<: *postgresql
-  database: club-west_test
+  database: club-west-api_test
 
 production:
   <<: *postgresql
-  database: club-west_production
+  database: club-west-api_production
