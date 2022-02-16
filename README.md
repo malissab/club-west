@@ -6,7 +6,9 @@ You're able to browse through in stock vintage items, leave reviews, and make on
 Prerequisites ✅
 
 Before continuing, please make sure you have met software requirements
+
 -The lastest version of Ruby
+
 -Postgresql
 
 Installation 💻
