@@ -6,8 +6,7 @@ You're able to browse through in stock vintage items, leave reviews, and make on
 Prerequisites ✅
 
 Before continuing, please make sure you have met software requirements
--Ruby 2.7.4
--Heroku CLI
+-The lastest version of Ruby
 -Postgresql
 
 Installation 💻
