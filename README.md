@@ -1,17 +1,16 @@
 # Club West Online Vintage Shop
 
-An E-commerce website for individuals that love to shop vintage curated merchandise. 
-You're able to browse through in stock vintage items, leave reviews, and make online transactions.
-
-Prerequisites ✅
+An E-commerce CRUD website for individuals that love to shop vintage curated merchandise. 
+You're able to browse through in stock vintage items, post, update, and delete reviews, 
+add items to your cart, and go through a checkout process.
 
 Before continuing, please make sure you have met software requirements
 
 -The lastest version of Ruby
 
--Postgresql
+-Database: postgresql
 
-Installation 💻
+Installation 💻 (To Run This App Locally)
 
 1. Git clone the repository to your machine
 2. Open up your CLI terminal and navigate to the project
