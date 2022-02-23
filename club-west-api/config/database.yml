@@ -1,8 +1,7 @@
 postgresql: &postgresql
   adapter: postgresql
-  host: localhost
-  pool: 5
-  timeout: 5000
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 
 development:
@@ -16,3 +15,6 @@ test:
 production:
   <<: *postgresql
   database: club_west_api_production
+  username: club_west_api
+  password: <%= ENV["CLUB_WEST_API_DATABASE_PASSWORD"] %>
+

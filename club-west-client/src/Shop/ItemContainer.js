@@ -15,12 +15,12 @@ export default function ItemContainer() {
     
   return (
     <div>
-      <Grid sx={{ flexGrow: 2,
+      <Grid sx={{ 
         marginTop: 2, 
         padding: 2, 
         columnGap: 4, 
         rowGap: 2, 
-        justifyContent: "center"}} container spacing={2}>
+        justifyContent: "center"}} container spacing={4}>
       {allItems}
       </Grid>
     </div>
