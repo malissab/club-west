@@ -20,7 +20,8 @@ Installation 💻 (To Run This App Locally)
 6. Open a separate terminal and navigate to the frontend 'club-west-client'
 7. Run npm start, and you should see the window pop up in your browser
 
-*If there are issues with start up. Run bundle install
+* Run bundle install
+* If this error occurs 'sh: react-scripts: command not found'... Run npm i react-scripts, Then npm start.
 
 Welcome to Club West!
 
