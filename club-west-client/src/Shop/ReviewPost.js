@@ -25,7 +25,6 @@ export default function ReviewPost({ review }) {
   const dispatch = useDispatch();
 
   function handleUpdate() {
-      console.log(comment)
     fetch(`/reviews/${review.id}`, {
       method: "PATCH",
       headers: {

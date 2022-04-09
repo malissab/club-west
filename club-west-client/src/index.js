@@ -12,7 +12,7 @@ import cartsReducer, { grandTotal } from './features/cartsSlice';
 const store = configureStore({
   reducer: {
     items: itemsReducer,
-    cart: cartsReducer
+    cart: cartsReducer,
   },
 });
 

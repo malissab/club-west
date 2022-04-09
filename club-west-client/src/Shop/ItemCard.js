@@ -4,7 +4,7 @@ import Paper from '@mui/material/Paper';
 
 
 
-export default function ItemCard({ id, name, image_url}) {
+export default function ItemCard({ id, name, image_url }) {
 
 
 
@@ -13,7 +13,7 @@ export default function ItemCard({ id, name, image_url}) {
 
   return (
     <div>
-
+      
       <Paper elevation={20} style={paperStyle}>
     
            <Link to={`/items/${id}`}>
