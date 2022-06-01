@@ -14,10 +14,6 @@ export default function ItemContainer() {
   description={item.description} image_url={item.image_url} price={item.price} />)
   
 
-
- 
-  
-  
     
   return (
     <div>
@@ -25,7 +21,7 @@ export default function ItemContainer() {
         marginTop: 2, 
         padding: 2, 
         columnGap: 4, 
-        rowGap: 2, 
+        rowGap: 4, 
         justifyContent: "center"}} container spacing={4}>
       {allItems}
       </Grid>
