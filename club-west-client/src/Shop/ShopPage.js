@@ -28,7 +28,7 @@ export default function ShopPage() {
 
     return (
         <div> 
-          <h2 style={{ marginTop: 90, marginLeft: 30, fontFamily: 'courierPrime'}}>[ shop ]</h2>
+          <h2 style={{ marginTop: 90, marginLeft: 30, fontFamily: 'courierPrime, monospace'}}>[ shop ]</h2>
           
             <ItemContainer />  
         </div>

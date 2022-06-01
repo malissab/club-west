@@ -17,7 +17,7 @@ export default function CartPage() {
   }, [cart, dispatch]);
 
   return (
-    <div style={{ paddingTop: 100, fontFamily: "courierPrime" }}>
+    <div style={{ paddingTop: 100, fontFamily: "courierPrime, monospace" }}>
       <h2>[ cart ]</h2>
       <Button
           variant="outlined"

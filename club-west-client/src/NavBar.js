@@ -57,10 +57,10 @@ export default function NavBar({user, setUser}) {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <img src="/images/c-west.png" alt="club-west-logo" style={{ width: '250px'}} />
           </Typography>
-          <Button style={{ fontFamily: 'courierPrime' }} color="inherit" onClick={() => navigate("/home")}>Home</Button>
-          <Button style={{ fontFamily: 'courierPrime' }} color="inherit" onClick={() => navigate("/about")}>About</Button>
-          <Button style={{ fontFamily: 'courierPrime' }} color="inherit" onClick={() => navigate("/items")}>Shop</Button>
-          <Button style={{ fontFamily: 'courierPrime' }} color="inherit" onClick={() => navigate("/connect")}>Connect</Button>
+          <Button style={{ fontFamily: 'courierPrime, monospace' }} color="inherit" onClick={() => navigate("/home")}>Home</Button>
+          <Button style={{ fontFamily: 'courierPrime, monospace' }} color="inherit" onClick={() => navigate("/about")}>About</Button>
+          <Button style={{ fontFamily: 'courierPrime, monospace' }} color="inherit" onClick={() => navigate("/items")}>Shop</Button>
+          <Button style={{ fontFamily: 'courierPrime, monospace' }} color="inherit" onClick={() => navigate("/connect")}>Connect</Button>
           <IconButton
                 
                 aria-label="account of current user"
@@ -72,7 +72,7 @@ export default function NavBar({user, setUser}) {
               >
                 <AccountCircle sx= {{ width: 30, height: 30 }} />
               </IconButton>
-              {user ? <><Typography style={{ fontFamily: 'courierPrime' }}>Welcome, {user.username}</Typography> <Button style={{ fontFamily: 'courierPrime' }} color="inherit" onClick={handleLogout}>Log out</Button></> : null} 
+              {user ? <><Typography style={{ fontFamily: 'courierPrime, monospace' }}>Welcome, {user.username}</Typography> <Button style={{ fontFamily: 'courierPrime, monospace' }} color="inherit" onClick={handleLogout}>Log out</Button></> : null} 
           <IconButton
             
             color="inherit"

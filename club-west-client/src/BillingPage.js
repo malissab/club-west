@@ -58,7 +58,7 @@ export default function BillingPage() {
 
   return (
     <>
-    <h3 style={{ fontFamily: 'courierPrime', paddingTop: 100}}>[ checkout ]</h3>
+    <h3 style={{ fontFamily: 'courierPrime, monospace', paddingTop: 100}}>[ checkout ]</h3>
       <Formik initialValues={initialValues}>
         {() => (
           <Form style={{ paddingTop: 40 }}>
@@ -144,7 +144,7 @@ export default function BillingPage() {
               required
               style={zipField}
             />
-            <h4 style={{ fontFamily: 'courierPrime', margin: 10}}>[ billing ]</h4>
+            <h4 style={{ fontFamily: 'courierPrime, monospace', margin: 10}}>[ billing ]</h4>
             <Field
               as={TextField}
               label="Card Number"

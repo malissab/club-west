@@ -67,7 +67,7 @@ export default function ItemDetails() {
 
 
   return (
-    <div style={{ paddingTop: 100, fontFamily: 'courierPrime' }}>
+    <div style={{ paddingTop: 100, fontFamily: 'courierPrime, monospace' }}>
       
       <h1 style= {{ paddingLeft: 15}}>{item.name}</h1>
       <Paper elevation={20} style={paperStyle}>

@@ -50,7 +50,7 @@ export default function LoginForm({ setIsUser, handleChange }) {
       const avatarStyle={ backgroundColor: '#855723', width: 60, height: 60 }
       const iconStyle={ color:'white', width: 45, height: 45 }
       const textFields={ width: '80%', margin: 20}
-      const buttonStyle={color: 'white', width: '80%', height: '5vh', fontFamily: 'courierPrime'}
+      const buttonStyle={color: 'white', width: '80%', height: '5vh', fontFamily: 'courierPrime, monospace'}
       const signUpStyle={paddingLeft: 6, fontSize: 15}
 
     return (
@@ -59,7 +59,7 @@ export default function LoginForm({ setIsUser, handleChange }) {
             <Avatar style={avatarStyle}>
               <AccountCircleOutlinedIcon style={iconStyle} />
             </Avatar>
-            <Typography style={{ paddingTop: 5, fontFamily: 'courierPrime' }}>
+            <Typography style={{ paddingTop: 5, fontFamily: 'courierPrime, monospace' }}>
               <h3>Login</h3>
             </Typography>
           </Grid>

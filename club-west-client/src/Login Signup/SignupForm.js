@@ -43,8 +43,8 @@ export default function SignupForm({ setIsUser, handleChange }) {
       const avatarStyle={ backgroundColor: '#855723', width: 60, height: 60 }
       const iconStyle={ color:'white', width: 45, height: 45 }
       const textFields={ width: '80%', margin: 10}
-      const buttonStyle={color: 'white', width: '80%', height: '5vh', fontFamily: 'courierPrime'}
-      const signUpStyle={paddingLeft: 6, fontSize: 15, fontFamily: 'courierPrime'}
+      const buttonStyle={color: 'white', width: '80%', height: '5vh', fontFamily: 'courierPrime, monospace'}
+      const signUpStyle={paddingLeft: 6, fontSize: 15, fontFamily: 'courierPrime, monospace'}
     
 
     return (
@@ -54,7 +54,7 @@ export default function SignupForm({ setIsUser, handleChange }) {
             <Avatar style={avatarStyle}>
               <AccountCircleOutlinedIcon style={iconStyle} />
             </Avatar>
-            <div style={{fontFamily: 'courierPrime', paddingTop: 5}}>
+            <div style={{fontFamily: 'courierPrime, monospace', paddingTop: 5}}>
             <h3>Sign Up</h3>
             <h5>Create an account.</h5>
             </div>
@@ -102,7 +102,7 @@ export default function SignupForm({ setIsUser, handleChange }) {
             </Form>
                 )}
             </Formik>
-            <Typography sx={{ paddingTop: 2, fontFamily: 'courierPrime'}}>
+            <Typography sx={{ paddingTop: 2, fontFamily: 'courierPrime, monospace'}}>
               Already have an account?
             <Link
                 style={signUpStyle}

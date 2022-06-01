@@ -4,7 +4,7 @@ export default function ConnectPage() {
 
     return (
         <div>
-            <h2 style={{ marginTop: 100, marginLeft: 30, fontFamily: 'courierPrime'}}>[ connect with us. ]</h2>
+            <h2 style={{ marginTop: 100, marginLeft: 30, fontFamily: 'courierPrime, monospace'}}>[ connect with us. ]</h2>
             <div style={{ textAlign: 'center', padding: 200 }}>
               <a href="https://www.instagram.com/clubwestco">
               <i style={{ color: '#855723', fontSize: 120, padding: 40 }} class="bi bi-instagram"></i>
