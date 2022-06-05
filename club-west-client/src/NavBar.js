@@ -14,6 +14,8 @@ import { useSelector } from 'react-redux';
 
 
 
+
+
 const darkTheme = createTheme({
     palette: {
       primary: {
@@ -54,6 +56,9 @@ export default function NavBar({user, setUser}) {
           >
            
           </IconButton>
+
+        
+          
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <img src="/images/c-west.png" alt="club-west-logo" style={{ width: '250px'}} />
           </Typography>

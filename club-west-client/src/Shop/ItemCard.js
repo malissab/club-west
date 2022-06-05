@@ -20,7 +20,7 @@ export default function ItemCard({ id, name, image_url, price }) {
             <img src={image_url} alt={name} width="100%" height="100%" />
             </Link>
             <div className='card-details' style={{ fontFamily: 'courierPrime, monospace'}}>
-            <h6>{name}</h6>
+            <h6 style={{ color: 'grey', paddingTop: '5px' }}>{name}</h6>
             <h6>${price}</h6>
             </div>
   
