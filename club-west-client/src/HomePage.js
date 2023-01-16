@@ -8,7 +8,7 @@ export default function HomePage() {
     <div>
 
       <div
-        id="carouselExampleSlidesOnly"
+        id="clubWestHomePage"
         class="carousel-slide"
         data-bs-ride="carousel"
       >
